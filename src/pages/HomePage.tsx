@@ -2,8 +2,17 @@ import { useContext, useEffect, useState } from "react";
 import api from "../api";
 import { CartContext } from "../context/CartContext";
 
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  thumbnail: string;
+  description?: string;
+  [key: string]: any;
+}
+
 const HomePage = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
@@ -47,13 +56,6 @@ const HomePage = () => {
                       src={item.thumbnail}
                       alt={item.title}
                       className="card-img-top w-100 h-100 object-fit-cover"
-                      style={{ transition: "transform 0.5s ease" }}
-                      onMouseEnter={(e) =>
-                        (e.target.style.transform = "scale(1.05)")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.target.style.transform = "scale(1)")
-                      }
                     />
                   </div>
 
