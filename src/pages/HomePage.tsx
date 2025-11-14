@@ -34,7 +34,6 @@ const HomePage = () => {
           <h1 className="display-6 fw-light mb-3 text-dark">
             Luxury Collection
           </h1>
-          <img src="" alt="" />
           <p className="text-muted lead">
             Curated selection of premium products. Discover timeless elegance
             and exceptional craftsmanship.
@@ -73,7 +72,7 @@ const HomePage = () => {
                     <div className="d-flex justify-content-between align-items-center pt-3 border-top">
                       <span className="fw-light text-dark">${item.price}</span>
                       <button
-                        onClick={() => addToCart(item)}
+                        onClick={() => addToCart({ ...item, quantity: 1 })}
                         className="btn btn-sm btn-dark fw-light"
                       >
                         <i className="fa-solid fa-plus"></i>
